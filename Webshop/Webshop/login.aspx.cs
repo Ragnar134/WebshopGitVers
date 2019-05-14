@@ -20,8 +20,8 @@ namespace Webshop
         {
             if(_cont.controleerAanmeldgegevens(txtbGebrNaam.Text, txtbWachtwoord.Text) ==true)
             {
-                lblFout.Text = "SUcces !!";
-                FormsAuthentication.RedirectFromLoginPage(txtbGebrNaam.Text, false);
+               
+                FormsAuthentication.RedirectFromLoginPage(_cont.haalKlantNrOp(txtbGebrNaam.Text).ToString(), false);
             }
             else
             {

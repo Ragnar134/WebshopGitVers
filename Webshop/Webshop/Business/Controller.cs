@@ -143,5 +143,13 @@ namespace Webshop.Business
             klant.Wachtwoord = ww;
             return persistence.checkCredentials(klant);
         }
+
+        //
+
+        public int haalKlantNrOp(string gebrnaam)
+        {
+            return persistence.getClientId(gebrnaam);
+        }
+
     }
 }

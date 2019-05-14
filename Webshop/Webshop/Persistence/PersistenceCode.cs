@@ -300,6 +300,21 @@ namespace Webshop.Persistence
             
         }
 
+        public int getClientId(string gebrnaam)
+        {
+            MySqlConnection conn = new MySqlConnection(ConnStr);
+            conn.Open();
+            string qry = "SELECT KlantNr FROM tblklant WHERE GebrNaam= '" + gebrnaam +"'";
+            MySqlCommand cmd = new MySqlCommand(qry, conn);
+            int klantnr = 0;
+            MySqlDataReader dtr = cmd.ExecuteReader();
+            while(dtr.Read())
+            {
+                klantnr = Convert.ToInt32(dtr["KlantNr"]);
+            }conn.Close();
+            return klantnr;
+        }
+
 
     }
 }
